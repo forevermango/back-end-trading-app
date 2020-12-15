@@ -1,9 +1,6 @@
 import sqlite3
-
 connection = sqlite3.connect('app.db')
-
 cursor = connection.cursor()
-
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS stock (
         id INTEGER PRIMARY KEY, 
@@ -11,7 +8,6 @@ cursor.execute("""
         company TEXT NOT NULL
     )
 """)
-
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS stock_price (
         id INTEGER PRIMARY KEY, 
@@ -26,5 +22,4 @@ cursor.execute("""
         FOREIGN KEY (stock_id) REFERENCES stock (id)
     )
 """)
-
 connection.commit()
