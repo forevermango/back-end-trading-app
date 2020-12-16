@@ -1,8 +1,8 @@
-import sqlite3
+import sqlite3, config
 import alpaca_trade_api as tradeapi
 
 
-connection = sqlite3.connect('/home/raahima/back-end-trading-app/app.db')
+connection = sqlite3.connect('app.db')
 connection.row_factory = sqlite3.Row
 
 cursor = connection.cursor()
@@ -11,10 +11,12 @@ cursor.execute("""
     SELECT symbol, company FROM stock
 """)
 rows = cursor.fetchall()
-symbols = [row['symbol'] for row in rows]
-print(symbols)
 
-api = tradeapi.REST('PKG1VWGGEU5M413AP0OC', 'ctSIUS7HX2zTaXQDmLgqZeFBiUsdwsDkoFmGOZBV', base_url='https://paper-api.alpaca.markets') # or use ENV Vars shown below
+symbols = [row['symbol'] for row in rows]
+
+
+api = tradeapi.REST('config.API_KEY', 'config.SECRET_KEY', base_url='config.API_URL') # or use ENV Vars shown below
+
 assets = api.list_assets()
 
 for asset in assets:
