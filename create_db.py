@@ -6,7 +6,7 @@ cursor.execute("""
     CREATE TABLE IF NOT EXISTS stock (
         id INTEGER PRIMARY KEY, 
         symbol TEXT NOT NULL UNIQUE, 
-        name TEXT NOT NULL
+        company TEXT NOT NULL
     )
 """)
 cursor.execute("""
