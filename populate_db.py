@@ -2,7 +2,7 @@ import sqlite3
 import alpaca_trade_api as tradeapi
 
 
-connection = sqlite3.connect('app.db')
+connection = sqlite3.connect('/home/raahima/back-end-trading-app/app.db')
 connection.row_factory = sqlite3.Row
 
 cursor = connection.cursor()
