@@ -30,4 +30,5 @@ for i in range(0, len(symbols), chunk_size):
                 INSERT INTO stock_price (stock_id, date, open, high, low, close, volume)
                 VALUES (?, ?, ?, ?, ?, ?, ?)
             """, (stock_id, bar.t.date(), bar.o, bar.h, bar.l, bar.c, bar.v))
+
 connection.commit()
